@@ -28,3 +28,8 @@ p {
   color: grey;
   margin: 10px;
 }
+
+#unemployed {
+  text-align: center;
+  color: red;
+}

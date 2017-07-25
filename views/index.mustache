@@ -12,7 +12,12 @@
         <a href="/{{id}}">
           <img src="{{avatar}}">
           <h2>{{name}}</h2>
+          {{#job}}
           <p>{{job}}, {{company}}</p>
+          {{/job}}
+          {{^job}}
+          <p id="unemployed">Available for hire</p>
+          {{/job}}
         </a>
       </div>
       {{/users}}
