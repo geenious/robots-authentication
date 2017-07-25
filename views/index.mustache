@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-
+    <main id="wrapper">
+      {{#users}}
+      <div>
+        <a href="/{{id}}">
+          <img src="{{avatar}}">
+          <h2>{{name}}</h2>
+          <p>{{job}}, {{company}}</p>
+        </a>
+      </div>
+      {{/users}}
+    </main>
   </body>
 </html>

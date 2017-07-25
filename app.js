@@ -14,6 +14,10 @@ app.get('/', function(req, res) {
   res.render('index', data);
 });
 
+app.get('/:id', function (req, res) {
+  res.send(req.params.id);
+});
+
 app.listen(3000, function() {
   console.log('Listening to port 3000');
 });
