@@ -1,6 +1,12 @@
+
+
 #wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 960px;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 #profile {
@@ -19,12 +25,22 @@ img {
 
 #name {
   flex-basis: 75%;
-  font-size: 1.5em;
   font-family: sans-serif;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: lighter;
+  margin: 2% 0;
 }
 
 p {
   margin: 0;
+  line-height: 1.5em;
+}
+
+#red {
+  color: red;
 }
 
 section {
@@ -43,4 +59,5 @@ section {
 
 .value {
   flex-basis: 75%;
+  line-height: 1.5em;
 }

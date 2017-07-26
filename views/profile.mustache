@@ -11,13 +11,20 @@
         <img src="{{avatar}}">
         <div id="name">
           <h1>{{name}}</h1>
-          <p>{{#address}}{{city}}, {{country}}{{/address}} | {{job}}, {{company}}</p>
+          {{#job}}
+          <p>{{#address}}{{#city}}{{city}},{{/city}} {{country}}{{/address}} | {{job}}, {{company}}</p>
+          {{/job}}
+          {{^job}}
+          <p>{{#address}}{{city}}, {{country}}{{/address}} | <span id="red">Available for hire<span>
+          {{/job}}
           <p>{{email}} | {{phone}}</p>
         </div>
+        {{#university}}
         <section id="education">
           <div class="category">Education</div>
           <div class="value">{{university}}</div>
         </section>
+        {{/university}}
         <section id="skills">
           <div class="category">Skills</div>
           <div class="value">{{#skills}}{{.}}<br>{{/skills}}</div>

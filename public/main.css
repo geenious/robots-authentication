@@ -22,11 +22,14 @@ img {
 h2 {
   color: #588BD0;
   text-align: center;
+  margin: 0;
+  padding: 0.83em 0;
 }
 
 p {
   color: grey;
-  margin: 10px;
+  margin: 0 10px;
+  padding-bottom: 10px;
 }
 
 #unemployed {
