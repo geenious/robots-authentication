@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
   res.render('index', data);
 });
 
-app.get('/:id', function (req, res) {
+app.get('/profile/:id', function (req, res) {
   res.send(req.params.id);
 });
 
