@@ -3,8 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title>Profile</title>
+    <link rel="stylesheet" href="/profile.css">
   </head>
   <body>
-    
+    <main id="wrapper">
+      <div id="profile">
+        <img src="{{avatar}}">
+        <div id="name">
+          <h1>{{name}}</h1>
+          <p>{{#address}}{{city}}, {{country}}{{/address}} | {{job}}, {{company}}</p>
+          <p>{{email}} | {{phone}}</p>
+        </div>
+        <section id="education">
+          <div class="category">Education</div>
+          <div class="value">{{university}}</div>
+        </section>
+        <section id="skills">
+          <div class="category">Skills</div>
+          <div class="value">{{#skills}}{{.}}<br>{{/skills}}</div>
+        </section>
+      </div>
+    </main>
   </body>
 </html>
