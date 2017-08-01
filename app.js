@@ -51,7 +51,6 @@ app.get('/workingRobots', function(req, res) {
   db.collection('users')
   .find({ job: { $type: 2 } })
   .toArray(function(err, results) {
-    console.log(results);
     res.render('index', { users: results })
   })
 });
