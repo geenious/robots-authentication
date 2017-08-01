@@ -1,3 +1,20 @@
+.links {
+  margin: 0 2%;
+  box-sizing: border-box;
+  flex-basis: 29.3333%;
+  text-align: center;
+  color: #588BD0;
+  line-height: 2em;
+  transition-duration: 2000ms;
+  border: 1px solid lightgrey;
+  font-family: sans-serif;
+}
+
+.links:hover {
+  background-color: #9FFFB7;
+  transition-duration: 2000ms;
+}
+
 #wrapper {
   width: 960px;
   display: flex;
@@ -6,7 +23,8 @@
 }
 
 div {
-  flex-basis: 21%;
+  box-sizing: border-box;
+  flex-basis: 22%;
   border: 1px solid lightgrey;
   margin: 1.5%;
 }
