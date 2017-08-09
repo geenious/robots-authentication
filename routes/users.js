@@ -1,35 +1,30 @@
 const router = require('express').Router();
+const User = require('../models/profiles');
 
 router.get('/', function(req, res) {
-  db.collection('users')
-  .find({})
-  .toArray(function(err, results) {
+  User.find({}).then(function(results) {
     res.render('index', { users: results });
   })
-});
+})
 
 router.get('/profile/:id', function(req, res) {
-  db.collection('users')
-  .find({ id: Number(req.params.id) })
-  .toArray(function(err, results) {
-    res.render('profile', results[0] );
-  })
+  let robotId = req.params.id;
+
+  User.findById(robotId).then((results) => {
+    res.render('profile', results);
+  });
 });
 
 router.get('/forHire', function(req, res) {
-  db.collection('users')
-  .find({ job: { $type: 10 } })
-  .toArray(function(err, results) {
+  User.find({ job: { $type: 10 } }).then((results) => {
     res.render('index', { users: results });
-  })
+  });
 });
 
 router.get('/workingRobots', function(req, res) {
-  db.collection('users')
-  .find({ job: { $type: 2 } })
-  .toArray(function(err, results) {
-    res.render('index', { users: results })
-  })
+  User.find({ job: { $type: 2 } }).then((results) => {
+    res.render('index', { users: results });
+  });
 });
 
 module.exports = router;

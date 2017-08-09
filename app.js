@@ -1,6 +1,7 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const mongoose = require('mongoose');
+const routes = require('./routes/users')
 
 /****** MONGOOSE SETUP  ******/
 
@@ -16,13 +17,14 @@ const app = express();
 let mustacheInstance = mustacheExpress();
 mustacheInstance.cache = null;
 app.engine('mustache', mustacheInstance);
-
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
 
 /****** STATIC FILES  ******/
 
 app.use(express.static('public'));
+
+app.use('/', routes);
 
 /****** APP.LISTEN  ******/
 
