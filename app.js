@@ -15,6 +15,21 @@ mongoose.Promise = global.Promise;
 /****** APP SETUP ******/
 
 const app = express();
+
+/******  SESSION SETUP  ******/
+
+app.use(session({
+  secret: 'fantasy',
+  resave: false,
+  saveUninitialized: false
+}));
+
+/****** PASSPORT SETUP ******/
+
+app.use(passport.initialize());
+app.use(passport.session());
+require('./passportconfig').configure(passport);
+
 app.use(bodyParser.urlencoded({ extended: false })); // handles post bodies
 app.use('/', routes);
 app.use('/', auth);
@@ -31,19 +46,6 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-/******  SESSION SETUP  ******/
-
-app.use(session({
-  secret: 'fantasy',
-  resave: false,
-  saveUninitialized: false
-}));
-
-/****** PASSPORT SETUP ******/
-
-app.use(passport.initialize());
-app.use(passport.session());
-require('./passportconfig').configure(passport);
 
 /****** APP.LISTEN  ******/
 

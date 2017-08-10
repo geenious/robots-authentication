@@ -5,13 +5,22 @@ router.get('/', function(req, res) {
   res.render('index', {});
 });
 
-router.get('/users', function(req, res) {
+function authRequired(req, res, next) {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+}
+
+router.get('/users', authRequired, function(req, res) {
+  console.log('the user?', req.user);
   User.find({}).then(function(results) {
     res.render('users', { users: results });
   });
 });
 
-router.get('/profile/:id', function(req, res) {
+router.get('/profile/:id', authRequired, function(req, res) {
   let robotId = req.params.id;
 
   User.findById(robotId).then((results) => {
@@ -19,15 +28,15 @@ router.get('/profile/:id', function(req, res) {
   });
 });
 
-router.get('/forHire', function(req, res) {
+router.get('/forHire', authRequired, function(req, res) {
   User.find({ job: { $type: 10 } }).then((results) => {
-    res.render('index', { users: results });
+    res.render('users', { users: results });
   });
 });
 
-router.get('/workingRobots', function(req, res) {
+router.get('/workingRobots', authRequired, function(req, res) {
   User.find({ job: { $type: 2 } }).then((results) => {
-    res.render('index', { users: results });
+    res.render('users', { users: results });
   });
 });
 
