@@ -2,16 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/index.css">
     <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
   </head>
   <body>
     <nav>
-      <ul id='login'>
+      <ul>
         <a href='/login'><li>Login</li></a>
         <a href='/register'><li>Register</li></a>
       </ul>
     </nav>
+    <main class='wrapper'>
+      <h2>Login</h2>
+      <form action='/login' method='post'>
+        <input type='text' name='username' placeholder='Username...'>
+        <input type='password' name='password' placeholder='Password...'>
+        <button type='submit'>Login</button>
+      </form>
+    </main>
   </body>
 </html>

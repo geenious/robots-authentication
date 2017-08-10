@@ -2,10 +2,14 @@ const router = require('express').Router();
 const User = require('../models/profiles');
 
 router.get('/', function(req, res) {
+  res.render('index', {});
+});
+
+router.get('/users', function(req, res) {
   User.find({}).then(function(results) {
-    res.render('index', { users: results });
-  })
-})
+    res.render('users', { users: results });
+  });
+});
 
 router.get('/profile/:id', function(req, res) {
   let robotId = req.params.id;

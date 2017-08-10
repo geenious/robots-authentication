@@ -1,7 +1,11 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const mongoose = require('mongoose');
-const routes = require('./routes/users')
+const routes = require('./routes/users');
+const auth = require('./routes/auth');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+const passport = require('passport');
 
 /****** MONGOOSE SETUP  ******/
 
@@ -11,6 +15,9 @@ mongoose.Promise = global.Promise;
 /****** APP SETUP ******/
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false })); // handles post bodies
+app.use('/', routes);
+app.use('/', auth);
 
 /******  MUSTACHE SETUP  ******/
 
@@ -24,7 +31,19 @@ app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-app.use('/', routes);
+/******  SESSION SETUP  ******/
+
+app.use(session({
+  secret: 'fantasy',
+  resave: false,
+  saveUninitialized: false
+}));
+
+/****** PASSPORT SETUP ******/
+
+app.use(passport.initialize());
+app.use(passport.session());
+require('./passportconfig').configure(passport);
 
 /****** APP.LISTEN  ******/
 
