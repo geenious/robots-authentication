@@ -28,6 +28,14 @@ router.get('/profile/:id', authRequired, function(req, res) {
   });
 });
 
+router.get('/profile/edit/:id', (req, res) => {
+  let robotId = req.params.id;
+
+  User.findById(robotId).then(results => {
+    res.render('profileedit', results);
+  })
+});
+
 router.get('/forHire', authRequired, function(req, res) {
   User.find({ job: { $type: 10 } }).then((results) => {
     res.render('users', { users: results });
