@@ -35,6 +35,9 @@
           <div class="value">{{#skills}}{{.}}<br>{{/skills}}</div>
         </section>
       </div>
+      <form method='get' action='/profile/edit/{{id}}'>
+        <button type='submit'>edit</button>
+      </form>
     </main>
   </body>
 </html>
