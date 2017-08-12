@@ -7,25 +7,27 @@ nav {
   background-color: #588BD0;
 }
 
-#navbar h1 {
-  margin: 0;
+nav h1 {
+  float: left;
+  margin: 5px 0 0 10px;
+  font-size: 1.6em;
   font-family: 'Saira', sans-serif;
   color: #9FFFB7;
 }
 
-ul {
+#navbar {
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: flex-end;
 }
 
-ul li {
+#navbar li {
   list-style: none;
   display: inline-block;
 }
 
-ul a {
+#navbar a {
   flex-basis: 10%;
   margin-left: 1px;
   padding: 10px 0;
@@ -38,7 +40,7 @@ ul a {
   font-family: 'Saira', sans-serif;
 }
 
-ul a:hover {
+#navbar a:hover {
   border: 2px solid #9FFFB7;
   background-color: #588BD0;
   color: #9FFFB7;
@@ -68,4 +70,18 @@ input {
 button {
   padding: 8px;
   font-size: 1.6em;
+}
+
+#errors {
+  border: 1px solid maroon;
+  background-color: rgba(255, 0, 0, 0.2);
+  padding: 20px 10px;
+  margin: 20px 0 0;
+}
+
+#errorMessages {
+  color: maroon;
+  list-style: none;
+  font-family: 'Saira', sans-serif;
+  font-size: 1.1em;
 }

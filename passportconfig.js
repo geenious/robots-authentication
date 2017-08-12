@@ -12,7 +12,9 @@ function configure(passport) {
         done(null, user);
       } else {
         console.log('LocalStrategy - Could not find the user or somesuch');
-        done(null, false);
+        done(null, false, {
+          message: 'Username or Password Invalid'
+        });
       }
     });
   }

@@ -6,6 +6,8 @@ const auth = require('./routes/auth');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const flash = require('express-flash-messages');
+const expressValidator = require('express-validator');
 
 /****** MONGOOSE SETUP  ******/
 
@@ -28,9 +30,11 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 require('./passportconfig').configure(passport);
 
 app.use(bodyParser.urlencoded({ extended: false })); // handles post bodies
+app.use(expressValidator());
 app.use('/', routes);
 app.use('/', auth);
 
