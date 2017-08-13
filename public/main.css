@@ -7,8 +7,10 @@ nav {
   background-color: #588BD0;
 }
 
-#navbar h1 {
-  margin: 0;
+nav h1 {
+  float: left;
+  margin: 5px 0 0 10px;
+  font-size: 1.6em;
   font-family: 'Saira', sans-serif;
   color: #9FFFB7;
 }
@@ -91,6 +93,7 @@ h2 {
 }
 
 p {
+  text-align: center;
   color: grey;
   margin: 0 10px;
   padding-bottom: 10px;

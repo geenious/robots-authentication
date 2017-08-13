@@ -13,23 +13,32 @@
         <a href='/logout'><li>Logout</li></a>
       </ul>
     </nav>
-    <h2>Edit your profile</h2>
-    <form method='post' action='/profile/edit/:id'>
-      <p>Avatar URL</p>
-      <input type='text' name='avatar' value='{{avatar}}'>
-      <p>Email</p>
-      <input type='text' name='email' value='{{email}}'>
-      <p>University</p>
-      <input type='text' name='university' value='{{university}}'>
-      <p>Job</p>
-      <input type='text' name='job' value='{{job}}'>
-      <p>Company</p>
-      <input type='text' name='company' value='{{company}}'>
-      <p>Skills</p>
-      <input type='text' name='skills' value="{{#skills}}{{.}}{{/skills}}">
-      <p>Phone Number</p>
-      <input type='text' name='phone' value='{{phone}}'>
-      <button type='submit'>submit</button>
-    </form>
+    <main class='wrapper'>
+      <h2>Edit your profile</h2>
+      <form method='post' action='/profile/edit/:id'>
+        <p>Avatar URL</p>
+        <input type='text' name='avatar' value='{{avatar}}'>
+        <p>Email</p>
+        <input type='text' name='email' value='{{email}}'>
+        <p>University</p>
+        <input type='text' name='university' value='{{university}}'>
+        <p>Job</p>
+        <input type='text' name='job' value='{{job}}'>
+        <p>Company</p>
+        <input type='text' name='company' value='{{company}}'>
+        <p>Skills</p>
+        <input type='text' name='skills' value="{{#skills}}{{.}}{{/skills}}">
+        <p>Phone Number</p>
+        <input type='text' name='phone' value='{{phone}}'>
+      </form>
+      <div class='button'>
+        <form class='form' method='post' action='/profile/edit/:id'>
+          <button type='submit'>submit</button>
+        </form>
+        <form class='form' method='post' action='/profile/delete/:id'>
+          <button type='submit'>delete</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
