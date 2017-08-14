@@ -15,7 +15,9 @@
     </nav>
     <main class='wrapper'>
       <h2>Edit your profile</h2>
-      <form method='post' action='/profile/edit/:id'>
+      <form method='post' action='/profile/edit/{{id}}'>
+        <p>Name</p>
+        <input type='text' name='name' value='{{name}}'>
         <p>Avatar URL</p>
         <input type='text' name='avatar' value='{{avatar}}'>
         <p>Email</p>
@@ -30,12 +32,10 @@
         <input type='text' name='skills' value="{{#skills}}{{.}}{{/skills}}">
         <p>Phone Number</p>
         <input type='text' name='phone' value='{{phone}}'>
+        <button type='submit'>submit</button>
       </form>
       <div class='button'>
-        <form class='form' method='post' action='/profile/edit/:id'>
-          <button type='submit'>submit</button>
-        </form>
-        <form class='form' method='post' action='/profile/delete/:id'>
+        <form class='form' method='post' action='/profile/delete/{{id}}'>
           <button type='submit'>delete</button>
         </form>
       </div>

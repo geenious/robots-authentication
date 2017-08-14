@@ -81,8 +81,13 @@ a {
   text-decoration: none;
 }
 
-img {
+#profileimg {
+  height: 200px;
   width: 200px;
+}
+
+img {
+  width: 100%;
 }
 
 h2 {

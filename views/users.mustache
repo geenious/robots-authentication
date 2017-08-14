@@ -20,7 +20,9 @@
       {{#users}}
       <div id="users">
         <a href="/profile/{{id}}">
-          <img src="{{avatar}}">
+          <div id='profileimg'>
+            <img src="{{avatar}}">
+          </div>
           <h2>{{name}}</h2>
           {{#job}}
           <p>{{job}}, {{company}}</p>
