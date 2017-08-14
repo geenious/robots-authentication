@@ -21,11 +21,16 @@ router.get('/users', authRequired, function(req, res) {
 });
 
 router.get('/profile/:id', authRequired, function(req, res) {
-  let robotId = req.params.id;
+  if (req.user._id == req.params.id) {
+    res.redirect('/userprofile')
+  } else {
+    console.log('user id?', req.params.id);
+    let robotId = req.params.id;
 
-  User.findById(robotId).then((results) => {
-    res.render('profile', results);
-  });
+    User.findById(robotId).then((results) => {
+      res.render('profile', results);
+    });
+  }
 });
 
 router.get('/profile/edit/:id', authRequired, (req, res) => {
@@ -35,6 +40,10 @@ router.get('/profile/edit/:id', authRequired, (req, res) => {
     res.render('profileedit', results);
   })
 });
+
+router.get('/userprofile', authRequired, (req, res) => {
+  res.render('userprofile', req.user);
+})
 
 router.post('/profile/edit/:id', authRequired, (req, res) => {
   let robotId = req.params.id;

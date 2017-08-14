@@ -132,3 +132,13 @@ section {
   flex-basis: 75%;
   line-height: 1.5em;
 }
+
+form {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form button {
+  font-size: 1.6em;
+}
